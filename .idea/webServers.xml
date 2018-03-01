@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bb60e047-a73e-431b-82da-8e9a4f3606f8" name="remote" url="http://123.207.215.205">
+        <fileTransfer host="123.207.215.205" port="21" rootFolder="/newhome/tomcat/apache-tomcat-8.5.27/webapps/webapps">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

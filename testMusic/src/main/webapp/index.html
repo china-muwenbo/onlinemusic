@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html class="no-js" lang="en"
+>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>dylan muiscplayer 中国流浪者</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div id="example-wrapper">
+    <ul id="example-size-picker">
+        <li data-size="mobile">Mobile</li>
+        <li data-size="large">Large</li>
+        <li data-size="full">Full Screen</li>
+    </ul>
+    <div id="example-outer">
+        <div id="example" data-size="large">
+
+        </div>
+    </div>
+</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/ttw-clarity-player.js"></script>
+<script src="js/yepnope.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        // htmlobj=$.ajax({url:"/getMusic"});
+        //
+        // alert(htmlobj.responseText);
+        // console.log(htmlobj.responseText);
+
+      var datajson ;
+      $.ajax({
+            type : "POST",
+            url : "/getMusic",
+            dataType:'json',
+            async: false,
+            success: function(data){
+                console.log(data)
+                datajson=data;
+            }
+        });
+
+        var clarity = $('#example').ttwClarityPlayer(datajson,{
+            jPlayer:{
+                supplied:'mp3',
+                errorAlerts:true,
+                autoPlay:true,
+                warningAlerts:true,
+                consoleAlerts:true
+            }
+        });
+
+        $('#example-size-picker').on('click', 'li', function(){
+            $('#example').attr('data-size', $(this).data('size'));
+            clarity.manageLayout();
+        });
+    });
+
+
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+    <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+    <p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>
