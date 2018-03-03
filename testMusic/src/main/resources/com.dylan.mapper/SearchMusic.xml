@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dylan.music.dao.SearchMusic">
+
+    <resultMap type="com.dylan.music.entity.MusicBean" id="replyMap">
+        <result column="url" property="mp3"/>
+        <result column="duration" property="duration"/>
+        <result column="cover" property="cover"/>
+        <result column="title" property="title"/>
+        <result column="artist" property="artist"/>
+        <result column="background" property="background"/>
+    </resultMap>
+
+    <select id="searchByName" resultMap="replyMap" parameterType="string">
+    SELECT * FROM music.musicinfo WHERE musicinfo.artist LIKE '%${name}%' LIMIT  0,1000
+    </select>
+
+    <select id="searchBySong" resultMap="replyMap" parameterType="string">
+        SELECT * FROM music.musicinfo WHERE musicinfo.title LIKE '%${_parameter}%' LIMIT  0,1000
+#         SELECT * FROM music.musicinfo WHERE musicinfo.title LIKE '%${name}%' LIMIT  0,1000
+    </select>
+
+</mapper>

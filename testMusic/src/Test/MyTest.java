@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.dylan.music.controller.MainController;
 import com.dylan.music.entity.MusicBean;
 import com.dylan.music.services.GetMusicServices;
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -63,10 +64,19 @@ public class MyTest {
 
     @Test
     public void testController1() throws Exception {
-        String url ="http://localhost:8080/getMusic";
+        String url ="http://localhost:8080/serach_bySongerName?serach_content=告白&need_page=1";
         MvcResult result = mockMvc.perform(post(url)).andReturn();
         System.out.println(result.getResponse().getContentAsString());
     }
+    Logger logger = Logger.getLogger(MyTest.class);
+    @Test
+    public void testController2() throws Exception {
+        String url ="http://localhost:8080/serach_byArtistName?serach_content=周&need_page=1";
+        MvcResult result = mockMvc.perform(post(url)).andReturn();
+        logger.info(""+result.getResponse().getContentAsString());
+    }
+
+    
 
 
 
