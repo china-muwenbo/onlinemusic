@@ -3,7 +3,9 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.dylan.music.dao.SearchMusic">
-
+    <!--
+    数据库字段名称与想要的字段名称不一样 转换一下
+    -->
     <resultMap type="com.dylan.music.entity.MusicBean" id="replyMap">
         <result column="url" property="mp3"/>
         <result column="duration" property="duration"/>
@@ -17,9 +19,11 @@
     SELECT * FROM music.musicinfo WHERE musicinfo.artist LIKE '%${name}%' LIMIT  0,1000
     </select>
 
+    <!--
+    #  SELECT * FROM music.musicinfo WHERE musicinfo.title LIKE '%${_parameter}%' LIMIT  0,1000
+    -->
     <select id="searchBySong" resultMap="replyMap" parameterType="string">
-        SELECT * FROM music.musicinfo WHERE musicinfo.title LIKE '%${_parameter}%' LIMIT  0,1000
-#         SELECT * FROM music.musicinfo WHERE musicinfo.title LIKE '%${name}%' LIMIT  0,1000
+        SELECT * FROM music.musicinfo WHERE musicinfo.title LIKE '%${name}%' LIMIT  0,1000
     </select>
 
 </mapper>

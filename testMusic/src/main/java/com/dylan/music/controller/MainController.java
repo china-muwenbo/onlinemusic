@@ -2,8 +2,6 @@ package com.dylan.music.controller;
 
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.dylan.music.dao.GetMusicData;
 import com.dylan.music.dao.SearchMusic;
 import com.dylan.music.services.GetMusicServices;
 import com.dylan.music.services.TestServices;
@@ -18,9 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by dzkan on 2016/3/8.
- */
 @Controller
 public class MainController {
     Logger logger = Logger.getLogger(MainController.class);
@@ -50,13 +45,13 @@ public class MainController {
     }
 
     /**
-     * 2、通过HttpServletRequest接收
+     * 通过歌手进行搜索
      *
      * @param request
-     * @return
+     * @return Json 字符串
      */
-        @ResponseBody
-        @RequestMapping(value = "/serach_byArtistName", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    @RequestMapping(value = "/serach_byArtistName", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json; charset=utf-8")
     public String searchByName(HttpServletRequest request) {
         String content = request.getParameter("serach_content");
         String need_page = request.getParameter("need_page");
@@ -64,11 +59,12 @@ public class MainController {
         System.out.println("password is:" + need_page);
         return JSON.toJSONString(searchMusic.searchByName(content));
     }
+
     /**
-     * 2、通过HttpServletRequest接收
+     * 根据歌名进行搜索
      *
      * @param request
-     * @return
+     * @return Json 字符串
      */
     @ResponseBody
     @RequestMapping(value = "/serach_bySongerName", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json; charset=utf-8")

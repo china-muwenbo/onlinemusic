@@ -9,6 +9,14 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="sftp">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/testMusic" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
     </serverData>
   </component>
 </project>

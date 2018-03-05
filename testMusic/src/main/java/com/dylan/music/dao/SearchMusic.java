@@ -14,8 +14,10 @@ public interface SearchMusic {
     //搜索根据名字
     List<MusicBean> searchByName(@Param(value = "name") String name);
     //搜索根据歌曲名
-//    List<MusicBean> searchBySong(@Param(value = "name") String name);
-    List<MusicBean> searchBySong(String name);
+    List<MusicBean> searchBySong(@Param(value = "name") String name);
+//    List<MusicBean> searchBySong(String name);
     //搜索
 //    List<MusicBean> search(String name);
+
 }
+
