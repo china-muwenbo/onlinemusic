@@ -13,7 +13,21 @@
                 </RunConfigurationRef>
               </key>
               <value>
-                <Pins />
+                <Pins>
+                  <option name="pins">
+                    <list>
+                      <Pin>
+                        <option name="consoleUUID" value="27e80800-40a5-4d28-a392-d83fad76dc3b" />
+                        <option name="grepModel">
+                          <GrepModel>
+                            <option name="expression" value="搜索" />
+                            <option name="unlessExpression" value="" />
+                          </GrepModel>
+                        </option>
+                      </Pin>
+                    </list>
+                  </option>
+                </Pins>
               </value>
             </entry>
             <entry>
@@ -31,7 +45,7 @@
                         <option name="consoleUUID" value="b0c9c36a-6a05-42ed-816d-dd98fa50ff19" />
                         <option name="grepModel">
                           <GrepModel>
-                            <option name="expression" value="" />
+                            <option name="expression" value="搜索" />
                             <option name="unlessExpression" value="" />
                           </GrepModel>
                         </option>

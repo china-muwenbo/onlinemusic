@@ -16,14 +16,20 @@
     </resultMap>
 
     <select id="searchByName" resultMap="replyMap" parameterType="string">
-    SELECT * FROM music.musicinfo WHERE musicinfo.artist LIKE '%${name}%' LIMIT  0,1000
+        SELECT *
+        FROM music.musicinfo
+        WHERE musicinfo.artist LIKE '%${name}%'
+        LIMIT 0, 200
     </select>
 
     <!--
     #  SELECT * FROM music.musicinfo WHERE musicinfo.title LIKE '%${_parameter}%' LIMIT  0,1000
     -->
     <select id="searchBySong" resultMap="replyMap" parameterType="string">
-        SELECT * FROM music.musicinfo WHERE musicinfo.title LIKE '%${name}%' LIMIT  0,1000
+        SELECT *
+        FROM music.musicinfo
+        WHERE musicinfo.title LIKE '%${name}%'
+        LIMIT 0, 200
     </select>
 
 </mapper>

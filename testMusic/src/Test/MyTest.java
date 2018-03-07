@@ -1,23 +1,17 @@
-
-
 import com.alibaba.fastjson.JSON;
 import com.dylan.music.controller.MainController;
-import com.dylan.music.entity.MusicBean;
 import com.dylan.music.services.GetMusicServices;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
@@ -75,9 +69,6 @@ public class MyTest {
         MvcResult result = mockMvc.perform(post(url)).andReturn();
         logger.info(""+result.getResponse().getContentAsString());
     }
-
-    
-
 
 
 }

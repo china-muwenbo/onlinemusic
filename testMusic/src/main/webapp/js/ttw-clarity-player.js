@@ -282,8 +282,6 @@ var ClarityTemplates = ClarityTemplates || false;
                 current = index;
 
                 $myJplayer.jPlayer("setMedia", myPlaylist[current]);
-
-
             }
 
             function playlistAdvance(index, direction, publishable) {
@@ -2237,6 +2235,7 @@ var ClarityTemplates = ClarityTemplates || false;
     };
 
     $.fn.ttwClarityPlayer = function (myPlaylist, userOptions) {
+
         return new ClarityPlayer(this, myPlaylist, userOptions);
     };
 

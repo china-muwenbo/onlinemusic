@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Controller
 public class MainController {
@@ -29,6 +28,7 @@ public class MainController {
 
     @RequestMapping(value = "/test", method = {RequestMethod.GET, RequestMethod.POST})
     public String index() {
+
         testServices.testInsert();
         return "test";
     }
@@ -40,7 +40,7 @@ public class MainController {
 
     @RequestMapping(value = "/getMusic", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String hello(HttpServletResponse response) throws IOException {
+    public String hello(HttpServletResponse response) {
         return JSON.toJSONString(getMusicServices.getGetMusicData());
     }
 
@@ -55,9 +55,10 @@ public class MainController {
     public String searchByName(HttpServletRequest request) {
         String content = request.getParameter("serach_content");
         String need_page = request.getParameter("need_page");
-        System.out.println("username is:" + content);
-        System.out.println("password is:" + need_page);
-        return JSON.toJSONString(searchMusic.searchByName(content));
+        logger.info("根据歌手名：搜索的字符串:" + content);
+        String json = JSON.toJSONString(searchMusic.searchByName(content));
+        if (json.length() > 2000) logger.info("搜索结果：" + json.substring(0, 2000));
+        return json;
     }
 
     /**
@@ -67,10 +68,13 @@ public class MainController {
      * @return Json 字符串
      */
     @ResponseBody
-    @RequestMapping(value = "/serach_bySongerName", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/serach_bySongName", method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json; charset=utf-8")
     public String searchBySongerName(HttpServletRequest request) {
         String content = request.getParameter("serach_content");
+        logger.info("根据歌名搜索：搜索的字符串:" + content);
         String need_page = request.getParameter("need_page");
-        return JSON.toJSONString(searchMusic.searchBySong(content));
+        String json = JSON.toJSONString(searchMusic.searchBySong(content));
+        if (json.length() > 2000) logger.info("搜索结果：" + json.substring(0, 2000));
+        return json;
     }
 }
